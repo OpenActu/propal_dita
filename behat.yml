@@ -1,0 +1,14 @@
+default:
+  extensions:
+    Behat\Symfony2Extension: ~
+    Behat\MinkExtension:
+      sessions:
+        default:
+          symfony2: ~
+  suites:
+    dita_tracking:
+      type: symfony_bundle
+      bundle: DitaTrackingBundle
+      contexts:
+        - DitaTrackingFeatureContext:
+            entity_manager: '@doctrine.orm.entity_manager'

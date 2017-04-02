@@ -1,0 +1,4 @@
+services:
+#    dita_tracking.example:
+#        class: Dita\TrackingBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
