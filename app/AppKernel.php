@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Dita\TrackingBundle\DitaTrackingBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new IsmaAmbrosi\Bundle\GeneratorBundle\IsmaAmbrosiGeneratorBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

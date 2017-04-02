@@ -3,5 +3,28 @@
 {% block title %}DitaTrackingBundle:Address:list{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Address:list page</h1>
+<div class="count">
+{{ pagination.getTotalItemCount }}
+</div>
+<table>
+<tr>
+{# sorting of properties based on query components #}
+    <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
+    <th{% if pagination.isSorted('address1') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Address', 'address1') }}</th>
+    <th>Actions</th>
+</tr>
+
+{# table body #}
+{% for address in pagination %}
+<tr {% if loop.index is odd %}class="color"{% endif %}>
+    <td>{{ address.id }}</td>
+    <td>{{ address.address1 }}</td>
+    <td><a href="{{ path('address_edit',{ id:address.id }) }}" class="btn btn-primary">edit</a></td>
+</tr>
+{% endfor %}
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
 {% endblock %}

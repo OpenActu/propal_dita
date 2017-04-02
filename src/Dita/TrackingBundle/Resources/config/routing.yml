@@ -1,19 +1,15 @@
-dita_tracking_homepage:
-    path:     /
-    defaults: { _controller: DitaTrackingBundle:Default:index }
-
-list:
-    path:     /address/list
-    defaults: { _controller: DitaTrackingBundle:Address:list }
-
-edit:
-    path:     /address/edit
+address_list:
+    path:     /address/list/{page}
+    defaults: { _controller: DitaTrackingBundle:Address:list, page:0 }
+    requirements: { page: \d+ }
+address_edit:
+    path:     /address/edit/{id}
     defaults: { _controller: DitaTrackingBundle:Address:edit }
-
-show:
+    requirements: {}
+address_show:
     path:     /address/show
     defaults: { _controller: DitaTrackingBundle:Address:show }
 
-remove:
+address_remove:
     path:     /address/remove
     defaults: { _controller: DitaTrackingBundle:Address:remove }
