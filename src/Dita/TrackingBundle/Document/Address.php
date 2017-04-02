@@ -3,7 +3,7 @@
 namespace Dita\TrackingBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Dita\TrackingBundle\Document\Address
  *
@@ -22,9 +22,19 @@ class Address
     protected $id;
 
     /**
+     * @var string $companyname
+     *
+     * @ODM\Field(name="companyname", type="string")
+     * @Assert\NotBlank()
+     */
+    protected $companyname;
+
+    /**
      * @var string $address1
      *
      * @ODM\Field(name="address1", type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(max=80,maxMessage="The max size is {{ limit }} characters")
      */
     protected $address1;
 
@@ -32,6 +42,7 @@ class Address
      * @var string $address2
      *
      * @ODM\Field(name="address2", type="string")
+     * @Assert\Length(max=80,maxMessage="The max size is {{ limit }} characters")
      */
     protected $address2;
 
@@ -39,6 +50,7 @@ class Address
      * @var string $address3
      *
      * @ODM\Field(name="address3", type="string")
+     * @Assert\Length(max=80,maxMessage="The max size is {{ limit }} characters")
      */
     protected $address3;
 
@@ -46,6 +58,7 @@ class Address
      * @var string $address4
      *
      * @ODM\Field(name="address4", type="string")
+     * @Assert\Length(max=80,maxMessage="The max size is {{ limit }} characters")
      */
     protected $address4;
 
@@ -320,5 +333,27 @@ class Address
     public function getComment()
     {
         return $this->comment;
+    }
+
+    /**
+     * Set companyName
+     *
+     * @param string $companyName
+     * @return $this
+     */
+    public function setCompanyname($companyName)
+    {
+        $this->companyname = $companyName;
+        return $this;
+    }
+
+    /**
+     * Get companyName
+     *
+     * @return string $companyName
+     */
+    public function getCompanyname()
+    {
+        return $this->companyname;
     }
 }
