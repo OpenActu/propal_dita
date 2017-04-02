@@ -8,6 +8,7 @@ class AddressController extends Controller
 {
     public function listAction()
     {
+        // test from commit to 1.0.0
         return $this->render('DitaTrackingBundle:Address:list.html.twig', array(
             // ...
         ));
